@@ -6,14 +6,18 @@
         <th>Descripción</th>
         <th>Precio</th>
         <th>Stock</th>
+        <th>Compras</th>
     </thead>
     <tbody>
         <tr *ngFor="let product of products" [ngClass]="{'settlement': product.settlement}">
-            <td><img [src]="product.image" [alt]="product.product"></td>
+            <td><img class="img-thumbnail" [src]="product.image" [alt]="product.product"></td>
             <td>{{product.product | uppercase}}</td>
             <td>{{product.description}}</td>
             <td>{{product.price | currency}}</td>
             <td><samp *ngIf="product.stock==0">Sin stock</samp> </td>
+            <td><button class="btn-primary btn-sma" (click)="downQuantity(product)">-</button>
+                <input type="number" [(ngModel)]="product.quantity">
+                <button class="btn-primary btn-sma" (click)="upQuantity(product)">+</button></td>
         </tr>
     </tbody>
 </table>

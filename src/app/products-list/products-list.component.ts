@@ -13,9 +13,10 @@ export class ProductsListComponent implements OnInit {
       product: "Cuadro",
       description: "Decoración de interiores",
       price:1500,
-      stock:43,
+      stock:4,
       image: "assets/img/cuadro.png",
       settlement: false,
+      quantity:0,
     },
     {
       product: "Agenda",
@@ -24,14 +25,16 @@ export class ProductsListComponent implements OnInit {
       stock:0,
       image: "assets/img/agenda-negra-frente.jpg",
       settlement: true,
+      quantity:0,
     },
     {
       product: "cuadro",
       description: "Decoración de interiores",
       price:2530,
-      stock:21,
+      stock:6,
       image: "assets/img/cuadro-simpe.png",
       settlement: false,
+      quantity:0,
     },
   ];
 
@@ -40,4 +43,15 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  downQuantity(product: Products): void {
+    if (product.quantity > 0) {
+      product.quantity--;
+    }
+  }
+
+  upQuantity(product: Products): void {
+    if (product.quantity < product.stock) {
+      product.quantity++;
+    }
+  }
 }
