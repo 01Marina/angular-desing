@@ -8,19 +8,12 @@
         <th>Stock</th>
     </thead>
     <tbody>
-        <tr>
-            <td><img [src]="products.image" [alt]="products.product"></td>
-            <td>{{products.product}}</td>
-            <td>{{products.product}}</td>
-            <td>{{products.description}}</td>
-            <td>{{products.price}}</td>
-            <td>{{products.stock}}</td>
-        </tr>
-        <tr>
-            <td>libretas</td>
-            <td>Papeleria de oficina</td>
-            <td>540</td>
-            <td>87</td>
+        <tr *ngFor="let product of products" [ngClass]="{'settlement': product.settlement}">
+            <td><img [src]="product.image" [alt]="product.product"></td>
+            <td>{{product.product | uppercase}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price | currency}}</td>
+            <td><samp *ngIf="product.stock==0">Sin stock</samp> </td>
         </tr>
     </tbody>
 </table>
