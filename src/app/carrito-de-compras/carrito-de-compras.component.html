@@ -4,23 +4,17 @@
         <th>Imagen</th>
         <th>Producto</th>
         <th>Descripción</th>
-        <th>Precio</th>
-        <th>Stock</th>
+        <th>Precio unitario</th>
+        <th>Cantidad</th>
     </thead>
     <tbody>
-        <tr>
-            <td>imagen</td>
-            <td>nada</td>
-            <td>nada</td>
-            <td>nada</td>
-            <td>nada</td>
+        <tr *ngFor="let product of (cartList$ | async)">
+            <td><img class="img-thumbnail" [src]="product.image" [alt]="product.product"></td>
+            <td>{{product.product | uppercase}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price | currency}}</td>
+            <td>{{product.quantity}}</td>
         </tr>
-        <tr>
-            <td>imagen</td>
-            <td>libretas</td>
-            <td>Papeleria de oficina</td>
-            <td>540</td>
-            <td>87</td>
-        </tr>
+        
     </tbody>
 </table>
