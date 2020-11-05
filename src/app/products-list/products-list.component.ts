@@ -54,4 +54,12 @@ export class ProductsListComponent implements OnInit {
       product.quantity++;
     }
   }
+
+  amountEntered(event, product: Products): void {
+    //if(product.quantity==null){
+    if (event.key == '-' || event.key == '+' || event.key == 'e') {
+      event.preventDefault();
+      product.quantity=0;
+    }
+  }
 }
