@@ -9,6 +9,7 @@ import { CarritoDeComprasComponent } from './carrito-de-compras/carrito-de-compr
 import { FormsModule } from '@angular/forms';
 import { DesingProductsComponent } from './desing-products/desing-products.component';
 import { DesingContactComponent } from './desing-contact/desing-contact.component';
+import { InputQuantityComponent } from './input-quantity/input-quantity.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DesingContactComponent } from './desing-contact/desing-contact.componen
     ProductsListComponent,
     CarritoDeComprasComponent,
     DesingProductsComponent,
-    DesingContactComponent
+    DesingContactComponent,
+    InputQuantityComponent
   ],
   imports: [
     BrowserModule,

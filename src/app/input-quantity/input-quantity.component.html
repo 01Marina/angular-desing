@@ -1,0 +1,4 @@
+<button class="btn-primary btn-sma" (click)="downQuantity()">-</button>
+<input class="input-quantity" type="number" min="0" [(ngModel)]="quantity"
+(keyup)="amountEntered($event)">
+<button class="btn-primary btn-sma" (click)="upQuantity()">+</button>

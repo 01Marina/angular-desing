@@ -17,10 +17,9 @@
             <td><samp *ngIf="product.stock==0; else inStock">Sin stock</samp>
                 <ng-template #inStock>En stock</ng-template>
             </td>
-            <td><button class="btn-primary btn-sma" (click)="downQuantity(product)">-</button>
-                <input class="input-quantity" type="number" min="0" [(ngModel)]="product.quantity"
-                (keyup)="amountEntered($event, product)">
-                <button class="btn-primary btn-sma" (click)="upQuantity(product)">+</button></td>
+            <td>
+                <app-input-quantity [(quantity)]="product.quantity" [maxStock]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-quantity>
+            </td>
         </tr>
     </tbody>
 </table>
