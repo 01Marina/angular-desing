@@ -1,16 +1,17 @@
-<table class="table">
-    <caption>Lista de productos</caption>
+<p>Tabla de productos</p>
+<table>
+    
     <thead>
-        <th>Imagen</th>
-        <th>Producto</th>
-        <th>Descripción</th>
-        <th>Precio</th>
-        <th>Stock</th>
-        <th>Compras</th>
-        <th></th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Stock</th>
+        <th scope="col" colspan="2">Compras</th>
+        <th scope="col"></th>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products" [ngClass]="{'settlement': product.settlement}">
+        <tr scope="row" *ngFor="let product of products" [ngClass]="{'settlement': product.settlement}">
             <td><img class="img-thumbnail" [src]="product.image" [alt]="product.product"></td>
             <td>{{product.product | uppercase}}</td>
             <td>{{product.description}}</td>
@@ -22,7 +23,7 @@
                 <app-input-quantity [(quantity)]="product.quantity" [maxStock]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-quantity>
             </td>
             <td>
-                <button (click)="addToCart(product)">Comprar</button>
+                <button class="btn btn-light" *ngIf="product.stock" (click)="addToCart(product)" >Comprar</button>
             </td>
         </tr>
     </tbody>
